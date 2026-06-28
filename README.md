@@ -14,6 +14,7 @@ A personal reference for Git commands — what they do, when to use them, and ho
 | `git init` | Create a new local repo |
 | `git clone <url>` | Download a repo from GitHub |
 | `git remote add origin <url>` | Connect local repo to GitHub |
+| `.gitignore` | Tell Git which files to never track |
 
 **Daily Workflow**
 | Command | What it does |
@@ -63,28 +64,29 @@ A personal reference for Git commands — what they do, when to use them, and ho
 1. [git init](#git-init)
 2. [git clone](#git-clone)
 3. [git remote](#git-remote)
-4. [git status](#git-status)
-5. [git add](#git-add)
-6. [git commit](#git-commit)
-7. [git push](#git-push)
-8. [git pull](#git-pull)
-9. [git fetch](#git-fetch)
-10. [git pull vs git fetch](#git-pull-vs-git-fetch)
-11. [git branch](#git-branch)
-12. [git checkout](#git-checkout)
-13. [git merge](#git-merge)
-14. [git rebase](#git-rebase)
-15. [git merge vs git rebase](#git-merge-vs-git-rebase)
-16. [git stash](#git-stash)
-17. [git cherry-pick](#git-cherry-pick)
-18. [git revert](#git-revert)
-19. [git reset](#git-reset)
-20. [git revert vs git reset](#git-revert-vs-git-reset)
-21. [git log](#git-log)
-22. [git diff](#git-diff)
-23. [git blame](#git-blame)
-24. [git tag](#git-tag)
-25. [git bisect](#git-bisect)
+4. [.gitignore](#gitignore)
+5. [git status](#git-status)
+6. [git add](#git-add)
+7. [git commit](#git-commit)
+8. [git push](#git-push)
+9. [git pull](#git-pull)
+10. [git fetch](#git-fetch)
+11. [git pull vs git fetch](#git-pull-vs-git-fetch)
+12. [git branch](#git-branch)
+13. [git checkout](#git-checkout)
+14. [git merge](#git-merge)
+15. [git rebase](#git-rebase)
+16. [git merge vs git rebase](#git-merge-vs-git-rebase)
+17. [git stash](#git-stash)
+18. [git cherry-pick](#git-cherry-pick)
+19. [git revert](#git-revert)
+20. [git reset](#git-reset)
+21. [git revert vs git reset](#git-revert-vs-git-reset)
+22. [git log](#git-log)
+23. [git diff](#git-diff)
+24. [git blame](#git-blame)
+25. [git tag](#git-tag)
+26. [git bisect](#git-bisect)
 
 ---
 
@@ -146,6 +148,36 @@ origin  https://github.com/username/repo.git (push)
 ```
 
 Think of it as your local repo's address book — it maps short names like `origin` to full GitHub URLs so you don't have to type the URL every time you push or pull.
+
+---
+
+## .gitignore
+
+A file that tells Git which files and folders to **never track or commit**.
+
+Place a file named `.gitignore` in the root of your repo. Git will never stage or commit anything matching the patterns inside it — even if you run `git add .`.
+
+```
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Misc
+*.log
+```
+
+Common patterns:
+| Pattern | What it ignores |
+|---|---|
+| `*.log` | All files ending in `.log` |
+| `folder/` | An entire folder |
+| `**/*.log` | All `.log` files in any subfolder |
+| `!important.log` | Exception — track this even if `*.log` is ignored |
+
+Common use cases: preventing accidental commits of secrets (`.env`), OS clutter (`.DS_Store`), editor config (`.vscode/`), or build artifacts (`node_modules/`, `dist/`).
 
 ---
 

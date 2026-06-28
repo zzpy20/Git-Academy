@@ -14,6 +14,7 @@
 | `git init` | 创建新的本地仓库 |
 | `git clone <url>` | 从 GitHub 下载仓库 |
 | `git remote add origin <url>` | 将本地仓库连接到 GitHub |
+| `.gitignore` | 告诉 Git 哪些文件永远不追踪 |
 
 **日常工作流**
 | 命令 | 作用 |
@@ -63,28 +64,29 @@
 1. [git init](#git-init)
 2. [git clone](#git-clone)
 3. [git remote](#git-remote)
-4. [git status](#git-status)
-5. [git add](#git-add)
-6. [git commit](#git-commit)
-7. [git push](#git-push)
-8. [git pull](#git-pull)
-9. [git fetch](#git-fetch)
-10. [git pull vs git fetch](#git-pull-vs-git-fetch)
-11. [git branch](#git-branch)
-12. [git checkout](#git-checkout)
-13. [git merge](#git-merge)
-14. [git rebase](#git-rebase)
-15. [git merge vs git rebase](#git-merge-vs-git-rebase)
-16. [git stash](#git-stash)
-17. [git cherry-pick](#git-cherry-pick)
-18. [git revert](#git-revert)
-19. [git reset](#git-reset)
-20. [git revert vs git reset](#git-revert-vs-git-reset)
-21. [git log](#git-log)
-22. [git diff](#git-diff)
-23. [git blame](#git-blame)
-24. [git tag](#git-tag)
-25. [git bisect](#git-bisect)
+4. [.gitignore](#gitignore)
+5. [git status](#git-status)
+6. [git add](#git-add)
+7. [git commit](#git-commit)
+8. [git push](#git-push)
+9. [git pull](#git-pull)
+10. [git fetch](#git-fetch)
+11. [git pull vs git fetch](#git-pull-vs-git-fetch)
+12. [git branch](#git-branch)
+13. [git checkout](#git-checkout)
+14. [git merge](#git-merge)
+15. [git rebase](#git-rebase)
+16. [git merge vs git rebase](#git-merge-vs-git-rebase)
+17. [git stash](#git-stash)
+18. [git cherry-pick](#git-cherry-pick)
+19. [git revert](#git-revert)
+20. [git reset](#git-reset)
+21. [git revert vs git reset](#git-revert-vs-git-reset)
+22. [git log](#git-log)
+23. [git diff](#git-diff)
+24. [git blame](#git-blame)
+25. [git tag](#git-tag)
+26. [git bisect](#git-bisect)
 
 ---
 
@@ -146,6 +148,36 @@ origin  https://github.com/username/repo.git (push)
 ```
 
 可以理解为本地仓库的通讯录——将 `origin` 这样的简短名称映射到完整的 GitHub URL，省去每次推送或拉取时手动输入 URL 的麻烦。
+
+---
+
+## .gitignore
+
+一个告诉 Git **永远不追踪或提交**哪些文件和文件夹的配置文件。
+
+在仓库根目录创建一个名为 `.gitignore` 的文件。Git 将不会暂存或提交任何匹配其中规则的内容——即使你运行了 `git add .`。
+
+```
+# macOS
+.DS_Store
+
+# 编辑器
+.vscode/
+.idea/
+
+# 其他
+*.log
+```
+
+常用匹配规则：
+| 规则 | 忽略的内容 |
+|---|---|
+| `*.log` | 所有以 `.log` 结尾的文件 |
+| `folder/` | 整个文件夹 |
+| `**/*.log` | 任意子目录下的所有 `.log` 文件 |
+| `!important.log` | 例外——即使有 `*.log` 规则也追踪此文件 |
+
+常见使用场景：防止意外提交密钥文件（`.env`）、系统垃圾文件（`.DS_Store`）、编辑器配置（`.vscode/`）或构建产物（`node_modules/`、`dist/`）。
 
 ---
 
