@@ -6,6 +6,58 @@ A personal reference for Git commands — what they do, when to use them, and ho
 
 ---
 
+## Quick Reference Cheat Sheet
+
+**Setup & Init**
+| Command | What it does |
+|---|---|
+| `git init` | Create a new local repo |
+| `git clone <url>` | Download a repo from GitHub |
+| `git remote add origin <url>` | Connect local repo to GitHub |
+
+**Daily Workflow**
+| Command | What it does |
+|---|---|
+| `git status` | Show current state |
+| `git add <file>` | Stage a file |
+| `git add .` | Stage all changes |
+| `git commit -m "msg"` | Save a snapshot |
+| `git push` | Send commits to GitHub |
+| `git pull` | Download + apply remote changes |
+| `git fetch` | Download remote changes only |
+
+**Branching & Merging**
+| Command | What it does |
+|---|---|
+| `git branch` | List branches |
+| `git branch <name>` | Create a branch |
+| `git checkout <name>` | Switch to a branch |
+| `git checkout -b <name>` | Create + switch in one step |
+| `git merge <name>` | Merge branch into current |
+| `git rebase <name>` | Replay commits on top of branch |
+| `git stash` | Shelve uncommitted changes |
+| `git stash pop` | Restore shelved changes |
+| `git cherry-pick <hash>` | Apply one specific commit |
+
+**Undoing Changes**
+| Command | What it does |
+|---|---|
+| `git revert <hash>` | Undo a commit (safe, adds new commit) |
+| `git reset HEAD~1` | Undo last commit, keep changes |
+| `git reset --hard HEAD~1` | Undo last commit, discard changes entirely |
+
+**Inspection**
+| Command | What it does |
+|---|---|
+| `git log --oneline` | Compact commit history |
+| `git diff` | Show unstaged changes |
+| `git diff --staged` | Show staged changes |
+| `git blame <file>` | Show who changed each line |
+| `git tag v1.0.0` | Mark a release |
+| `git bisect start` | Start binary bug search |
+
+---
+
 ## Table of Contents
 
 1. [git init](#git-init)

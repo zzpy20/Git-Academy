@@ -6,6 +6,58 @@
 
 ---
 
+## 快速参考速查表
+
+**初始化与配置**
+| 命令 | 作用 |
+|---|---|
+| `git init` | 创建新的本地仓库 |
+| `git clone <url>` | 从 GitHub 下载仓库 |
+| `git remote add origin <url>` | 将本地仓库连接到 GitHub |
+
+**日常工作流**
+| 命令 | 作用 |
+|---|---|
+| `git status` | 显示当前状态 |
+| `git add <file>` | 暂存指定文件 |
+| `git add .` | 暂存所有改动 |
+| `git commit -m "说明"` | 保存快照 |
+| `git push` | 将提交发送到 GitHub |
+| `git pull` | 下载并应用远程改动 |
+| `git fetch` | 仅下载远程改动 |
+
+**分支与合并**
+| 命令 | 作用 |
+|---|---|
+| `git branch` | 列出所有分支 |
+| `git branch <name>` | 创建分支 |
+| `git checkout <name>` | 切换到分支 |
+| `git checkout -b <name>` | 创建并切换，一步完成 |
+| `git merge <name>` | 将分支合并到当前分支 |
+| `git rebase <name>` | 将提交重放到分支之上 |
+| `git stash` | 搁置未提交的改动 |
+| `git stash pop` | 恢复搁置的改动 |
+| `git cherry-pick <hash>` | 应用某一个特定提交 |
+
+**撤销改动**
+| 命令 | 作用 |
+|---|---|
+| `git revert <hash>` | 撤销提交（安全，添加新提交） |
+| `git reset HEAD~1` | 撤销最后一次提交，保留改动 |
+| `git reset --hard HEAD~1` | 撤销最后一次提交，彻底丢弃改动 |
+
+**历史查看**
+| 命令 | 作用 |
+|---|---|
+| `git log --oneline` | 简洁提交历史 |
+| `git diff` | 显示未暂存的改动 |
+| `git diff --staged` | 显示已暂存的改动 |
+| `git blame <file>` | 显示每行的修改者 |
+| `git tag v1.0.0` | 标记一个发布版本 |
+| `git bisect start` | 开始二分查找 bug |
+
+---
+
 ## 目录
 
 1. [git init](#git-init)
